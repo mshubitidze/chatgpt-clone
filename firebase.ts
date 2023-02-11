@@ -5,12 +5,12 @@ import { getFirestore } from "firebase/firestore";
 // https://firebase.google.com/docs/web/setup#available-libraries
 
 const firebaseConfig = {
-  apiKey: "AIzaSyCeHvoi-eUPpeKbv3mEDtedWJ_AY-Fw4Co",
-  authDomain: "chatgpt-clone-c5098.firebaseapp.com",
-  projectId: "chatgpt-clone-c5098",
-  storageBucket: "chatgpt-clone-c5098.appspot.com",
-  messagingSenderId: "883411294915",
-  appId: "1:883411294915:web:905dec433e38292aeae076"
+  apiKey: "AIzaSyCxJeavIinC7xL5ZyKJKO6fZNChtyNqc9o",
+  authDomain: "chatgpt-clone-da184.firebaseapp.com",
+  projectId: "chatgpt-clone-da184",
+  storageBucket: "chatgpt-clone-da184.appspot.com",
+  messagingSenderId: "404745497864",
+  appId: "1:404745497864:web:8f4aad16e279c60c9a50bd"
 };
 
 // Initialize Firebase

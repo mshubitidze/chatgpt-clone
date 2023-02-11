@@ -5,6 +5,7 @@ import { useSession, signOut } from "next-auth/react";
 import { useCollection } from "react-firebase-hooks/firestore";
 import { db } from "../firebase";
 import ChatRow from "./ChatRow";
+import ModelSelection from "./ModelSelection";
 import NewChat from "./NewChat";
 
 const SideBar = () => {
@@ -17,15 +18,22 @@ const SideBar = () => {
         orderBy("createdAt", "asc")
       )
   );
-
-  return (
+  
+return (
     <div className="flex flex-col p-2 h-screen">
       <div className="flex-1">
-        <div>
+        <div className="flex flex-col gap-1">
           <NewChat />
 
-          <div>{/* Model Selection */}</div>
+          <div className="hidden md:inline">
+            <ModelSelection />
+          </div>
 
+          {loading && (
+            <div className="animate-pulse text-center text-white">
+              <p>Loading Chats...</p>
+            </div>
+          )}
           {chats?.docs.map((chat) => (
             <ChatRow key={chat.id} id={chat.id} />
           ))}

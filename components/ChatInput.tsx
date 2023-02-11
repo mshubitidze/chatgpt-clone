@@ -6,13 +6,15 @@ import { useSession } from "next-auth/react";
 import { FormEvent, useState } from "react";
 import { toast } from "react-hot-toast";
 import { db } from "../firebase";
+import ModelSelection from "./ModelSelection";
 
 function ChatInput({ chatId }: { chatId: string }) {
   const [prompt, setPrompt] = useState("");
   const { data: session } = useSession();
 
-  // TODO: useSWR to get model
-  const model = "text-ada-001";
+  const { data: model } = useSWR("model", {
+    fallbackData: "text-davinci-003",
+  });
 
   const sendMessage = async (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
@@ -70,7 +72,7 @@ function ChatInput({ chatId }: { chatId: string }) {
   };
 
   return (
-    <div className="text-sm text-gray-400 rounded-lg bg-gray-700/50">
+    <div className="text-sm text-gray-400 bg-gray-700/50">
       <form onSubmit={sendMessage} className="flex p-5 space-x-5">
         <input
           value={prompt}
@@ -88,9 +90,15 @@ function ChatInput({ chatId }: { chatId: string }) {
           <PaperAirplaneIcon className="w-4 h-4 -rotate-45" />
         </button>
       </form>
-      <div>{/* ModelSelection */}</div>
+      <div className="md:hidden">
+        <ModelSelection />
+      </div>
     </div>
   );
 }
 
 export default ChatInput;
+function useSWR(arg0: string, arg1: { fallbackData: string; }): { data: any; mutate: any; } {
+    throw new Error("Function not implemented.");
+}
+
