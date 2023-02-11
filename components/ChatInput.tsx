@@ -12,9 +12,11 @@ function ChatInput({ chatId }: { chatId: string }) {
   const [prompt, setPrompt] = useState("");
   const { data: session } = useSession();
 
-  const { data: model } = useSWR("model", {
-    fallbackData: "text-davinci-003",
-  });
+  // const { data: model } = useSWR("model", {
+  //   fallbackData: "text-davinci-003",
+  // });
+
+  const model = "text-davinci-003"
 
   const sendMessage = async (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
