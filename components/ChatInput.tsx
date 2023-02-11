@@ -7,16 +7,15 @@ import { FormEvent, useState } from "react";
 import { toast } from "react-hot-toast";
 import { db } from "../firebase";
 import ModelSelection from "./ModelSelection";
+import useSWR from "swr";
 
 function ChatInput({ chatId }: { chatId: string }) {
   const [prompt, setPrompt] = useState("");
   const { data: session } = useSession();
 
-  // const { data: model } = useSWR("model", {
-  //   fallbackData: "text-davinci-003",
-  // });
-
-  const model = "text-davinci-003"
+  const { data: model } = useSWR("model", {
+    fallbackData: "text-davinci-003",
+  });
 
   const sendMessage = async (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
@@ -100,7 +99,3 @@ function ChatInput({ chatId }: { chatId: string }) {
 }
 
 export default ChatInput;
-function useSWR(arg0: string, arg1: { fallbackData: string; }): { data: any; mutate: any; } {
-    throw new Error("Function not implemented.");
-}
-
