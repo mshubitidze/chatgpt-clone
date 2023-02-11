@@ -3,7 +3,7 @@
 import { PaperAirplaneIcon } from "@heroicons/react/24/solid";
 import { addDoc, collection, serverTimestamp } from "firebase/firestore";
 import { useSession } from "next-auth/react";
-import { FormEvent, useEffect, useState } from "react";
+import { FormEvent, useState } from "react";
 import { toast } from "react-hot-toast";
 import { db } from "../firebase";
 
@@ -33,17 +33,21 @@ function ChatInput({ chatId }: { chatId: string }) {
       },
     };
 
-    await addDoc(
-      collection(
-        db,
-        "users",
-        session?.user?.email!,
-        "chats",
-        chatId,
-        "messages"
-      ),
-      message
-    );
+    try {
+      await addDoc(
+        collection(
+          db,
+          "users",
+          session?.user?.email!,
+          "chats",
+          chatId,
+          "messages"
+        ),
+        message
+      );
+    } catch (e) {
+      console.error(e);
+    }
 
     const notification = toast.loading("ChatGPT is thinking...");
 

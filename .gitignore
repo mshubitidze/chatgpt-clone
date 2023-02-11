@@ -36,4 +36,4 @@ yarn-error.log*
 next-env.d.ts
 
 # firebase admin key
-serviceAccountKey.json
+chatgpt-clone-c5098-firebase-adminsdk-9wikn-96f6add3a8.json

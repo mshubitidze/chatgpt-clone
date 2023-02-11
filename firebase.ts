@@ -4,14 +4,13 @@ import { getFirestore } from "firebase/firestore";
 // TODO: Add SDKs for Firebase products that you want to use
 // https://firebase.google.com/docs/web/setup#available-libraries
 
-// Your web app's Firebase configuration
 const firebaseConfig = {
-  apiKey: "AIzaSyDuCTX89jiPv0qz8IRiFfx3wQsILBF05uA",
-  authDomain: "chatgpt-messenger-da73d.firebaseapp.com",
-  projectId: "chatgpt-messenger-da73d",
-  storageBucket: "chatgpt-messenger-da73d.appspot.com",
-  messagingSenderId: "1020536273040",
-  appId: "1:1020536273040:web:68449b14298f72933dc015"
+  apiKey: "AIzaSyCeHvoi-eUPpeKbv3mEDtedWJ_AY-Fw4Co",
+  authDomain: "chatgpt-clone-c5098.firebaseapp.com",
+  projectId: "chatgpt-clone-c5098",
+  storageBucket: "chatgpt-clone-c5098.appspot.com",
+  messagingSenderId: "883411294915",
+  appId: "1:883411294915:web:905dec433e38292aeae076"
 };
 
 // Initialize Firebase

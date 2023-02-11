@@ -8,8 +8,9 @@ function Login() {
       <Image
         src="https://links.papareact.com/2i6"
         width={300}
-        height={300}
+        height={225}
         alt="logo"
+        priority={true}
       />
       <button
         onClick={() => signIn("google")}
